@@ -322,6 +322,14 @@ delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
 
+dotenv-expand@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-4.0.1.tgz#68fddc1561814e0a10964111057ff138ced7d7a8"
+
+dotenv@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
+
 ecc-jsbn@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
@@ -769,6 +777,10 @@ lodash.merge@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
 
+lodash@^4.17.4:
+  version "4.17.4"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
 meshblu-connector-daemon@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/meshblu-connector-daemon/-/meshblu-connector-daemon-1.0.4.tgz#57a3051121fbde623f9f0d978cff460d0a52f267"
@@ -917,6 +929,16 @@ object.omit@^2.0.0:
   dependencies:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
+
+octodash@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/octodash/-/octodash-1.0.6.tgz#a33158d7c52e66d728329c48f1aa5064c9ed949b"
+  dependencies:
+    chalk "^1.1.3"
+    dashdash "^1.14.1"
+    dotenv "^4.0.0"
+    dotenv-expand "^4.0.1"
+    lodash "^4.17.4"
 
 once@^1.3.0, once@^1.3.3:
   version "1.4.0"
