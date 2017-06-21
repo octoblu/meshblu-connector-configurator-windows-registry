@@ -1,15 +1,13 @@
 {
   "name": "meshblu-connector-configurator-windows-registry",
-  "version": "1.1.2",
-  "description": "Configure Meshblu Connectors using PM2 using a directory tree of meshblu.json",
+  "version": "1.0.0",
+  "description": "get meshblu connectors config from windows registry",
   "bin": {
     "meshblu-connector-configurator-windows-registry": "command.js"
   },
   "main": "index.js",
   "scripts": {
-    "package": "pkg --out-dir ./deploy ./command.js",
-    "test": "exit 0",
-    "build": "exit 0"
+    "test": "exit 0"
   },
   "repository": {
     "type": "git",
@@ -25,19 +23,6 @@
     "url": "https://github.com/octoblu/meshblu-connector-configurator-windows-registry/issues"
   },
   "homepage": "https://github.com/octoblu/meshblu-connector-configurator-windows-registry#readme",
-  "pkg": {
-    "scripts": [
-      "package.json",
-      "index.js",
-      "src/*.js",
-      "jobs/**/*.js",
-      "configs/**/*.js",
-      "node_modules/meshblu-connector-schema-generator/dist/*.js",
-      "node_modules/meshblu-connector-schema-generator/*.js",
-      "node_modules/meshblu-connector-runner/*.js",
-      "node_modules/meshblu-connector-runner/dist/*.js"
-    ]
-  },
   "dependencies": {
     "bluebird": "^3.5.0",
     "chalk": "^1.1.3",
