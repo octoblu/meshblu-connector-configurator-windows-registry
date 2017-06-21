@@ -1,0 +1,78 @@
+branches:
+  only:
+  - "/^v[0-9]/"
+matrix:
+  include:
+  - os: linux
+    dist: trusty
+    language: shell
+    sudo: required
+    services:
+    - docker
+    install:
+    - docker pull octoblu/meshblu-connector-builder:linux-armv7
+    script:
+    - |
+      docker run --rm --volume $PWD:/work \
+        --env TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG \
+        --env TRAVIS_BRANCH=$TRAVIS_BRANCH \
+        --env MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN=$MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN \
+        octoblu/meshblu-connector-builder:linux-armv7 \
+          bash -c 'export HOME=/tmp/cache \
+            && meshblu-connector-pkger \
+            && meshblu-connector-installer-debian --destination-path=/usr/share/meshblu-connectors/configurators/meshblu-json \
+            && meshblu-connector-uploader-github \
+          '
+  - os: linux
+    dist: trusty
+    language: shell
+    sudo: required
+    services:
+    - docker
+    install:
+    - docker pull octoblu/meshblu-connector-builder:linux-x86
+    script:
+    - |
+      docker run --rm --volume $PWD:/work \
+        --env TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG \
+        --env TRAVIS_BRANCH=$TRAVIS_BRANCH \
+        --env MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN=$MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN \
+        octoblu/meshblu-connector-builder:linux-x86 \
+          bash -c 'export HOME=/tmp/cache \
+            && meshblu-connector-pkger \
+            && meshblu-connector-installer-debian --destination-path=/usr/share/meshblu-connectors/configurators/meshblu-json \
+            && meshblu-connector-uploader-github \
+          '
+  - os: linux
+    dist: trusty
+    language: shell
+    sudo: required
+    services:
+    - docker
+    install:
+    - docker pull octoblu/meshblu-connector-builder:linux-x64
+    script:
+    - |
+      docker run --rm --volume $PWD:/work \
+        --env TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG \
+        --env TRAVIS_BRANCH=$TRAVIS_BRANCH \
+        --env MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN=$MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN \
+        octoblu/meshblu-connector-builder:linux-x64 \
+          bash -c 'export HOME=/tmp/cache \
+            && meshblu-connector-pkger \
+            && meshblu-connector-installer-debian --destination-path=/usr/share/meshblu-connectors/configurators/meshblu-json \
+            && meshblu-connector-uploader-github \
+          '
+  - os: osx
+    node_js: '8'
+    language: node_js
+    after_success:
+    - yarn global add meshblu-connector-pkger meshblu-connector-installer-macos meshblu-connector-uploader-github
+    - |
+      meshblu-connector-pkger \
+      && meshblu-connector-installer-macos --destination-path=/Library/MeshbluConnectors/configurators/meshblu-json \
+      && meshblu-connector-uploader-github
+env:
+  global:
+  - secure: EigoHK11nLUH9QTdh0zOl1wLinBZu3f/zBmFUo/llbc0pyxYSTmYp/XHquNxvtv/GRRkQO6GLEPIIzgHsG1yn6Sbiq8TcDT6T5GylcMeCZHpBkZFU3OYemgZZkVhKGaLBd0wI3fG/I+A4UdnSJ8RdwJzNLym+440dof3Md8k8mOrgpHeHMgSJWtRgyXdg8G3J4qr/wkO42kpNloYBr29TXHpJHJPh6AMU8lOguw7W2GnMGjSLH/KzLLRIlCsWvSH+f5jiQnEV5YD7QTtHjgP4AcHMSVUqR1hjUDSFvLUF8gxI9/G0VgDtW5XJFFiccniDh1Rhqf3vxYrVHQ787/2plJ6qcp9IPxbhDbU9QhSLynPd1bUveFLqqK0e7SKaozR3CWNXT/IZeTdLfKSyvjmzsKeRrVfha025MqUfi4KQZA7t8QKM62Uf5MErouE6SqgJhkJhkNiIIOaG+47rYw8Txf3QMhqoxcAfD/9ra4XTv1uV+EFEoivE8p7cZExIpm8P5pRFsKhcputYGIGna7kMQV1TwjkDLnHlHPPSZBvNfzP4Gtqkn3i4ofkTPvVfjq2vdobiimwrYsxo4IDruDLuWl7D55f+Ea9LEKCgBEjyx0qklXAZlGAMs1uBzBMW74W5bHqZPmOz+CfI1PFt+xIWU+Zku1DW8F/MDJ+Ph/AQvg=
+  - secure: UPncoV+PCaHCBoWXjZzWAT8xrUXN/SCHlAP6MLxbJzhrGNFo9Bt2R9sQ+tn9lcXlFRspJnEgZQsjJfJo/gnHIsBvZETOiCTgeuUUL/Ha4NDfyTxZdB2rRYuBjt6vbBLu1wbaIJQdMj/5QXsDEYt+dQ5/D1EyJb/NWBzNUOHc8toYjJVxVXMmY0eUAJ855RIDLb3xlqBBhtyhgsXlJ8WSP6FpF0eX0SvlZxsWjKS3hcW4nDkvd/QkWD0fxyVti7CTHwA27UxV9a3yRUvJFWh+iEcOkFMF0lHKqzuxNVpsOPjGnfASh9B3ZLYy4ds5y7RRjNzR9X+MHPraHeygWe3AEK7IovaSQ1YS0RSKMhmAvErOLdfAY1NX288e9yn4r/PSIlPC/KMd0+HZIBr/mFNLCaV2NTjx9HiMmFXixjvbl03kU8HOfcjgwIMvj/qcyJU038bZhVi3qfSSBt0RTrlopEEKPI0IsqdGV9iCoE2a2mRuXFf+Ejn4lzSCl0T3+yRivCq/qRxWLEXc/iXYPSOem4Gw+94tX0pIK+ut7WlJob/c+tU/Q+O8azgeMpXt9O3QoUJyILqooyEZSO6fOlJEgI6FzlRSpXyBW9mEWFfzCvyLQ0VuDunYFMHts9ebF6e8KSJHhFroLvgERrzDfM8uPsTxlFmLCSdWTbxGPUa5vQE=
