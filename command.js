@@ -17,7 +17,7 @@ const CLI_OPTIONS = [
     names: ["pm2-home"],
     type: "string",
     required: true,
-    env: "PM2_HOME",
+    env: "MESHBLU_CONNECTOR_PM2_HOME",
     help: "Base location of meshblu-connector-pm2",
     helpArg: "PATH",
     completionType: "file",
