@@ -34,20 +34,24 @@ class MeshbluConnectorConfiguratorCommand {
     })
   }
 
-  async run() {
+  run() {
     const options = this.octoDash.parseOptions()
     const { connectorHome, pm2Home } = options
     const configurator = new MeshbluConnectorConfigurator({ connectorHome, pm2Home })
-    try {
-      await configurator.configurate()
-    } catch (error) {
-      this.octoDash.die(error)
-    }
-    // process.exit(0)
+    return configurator.configurate()
+  }
+
+  die(error) {
+    this.octoDash.die(error)
   }
 }
 
 const command = new MeshbluConnectorConfiguratorCommand({ argv: process.argv })
-command.run().catch(error => {
-  console.error(error)
-})
+command
+  .run()
+  .catch(error => {
+    command.die(error)
+  })
+  .then(() => {
+    process.exit(0)
+  })
