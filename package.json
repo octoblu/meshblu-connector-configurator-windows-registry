@@ -1,6 +1,6 @@
 {
   "name": "meshblu-connector-configurator-windows-registry",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "get meshblu connectors config from windows registry",
   "bin": {
     "meshblu-connector-configurator-windows-registry": "command.js"
