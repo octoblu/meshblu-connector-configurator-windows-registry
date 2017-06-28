@@ -1,6 +1,6 @@
 {
   "name": "meshblu-connector-configurator-windows-registry",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "get meshblu connectors config from windows registry",
   "bin": {
     "meshblu-connector-configurator-windows-registry": "command.js"
@@ -30,9 +30,8 @@
     "glob": "^7.1.2",
     "jsonfile": "^3.0.0",
     "lodash.flatten": "^4.4.0",
-    "meshblu-connector-daemon": "^1.0.4",
-    "octodash": "^1.0.6",
-    "pkg": "^4.0.0",
+    "meshblu-connector-daemon": "^1.1.1",
+    "octodash": "^1.2.5",
     "winreg": "^1.2.4"
   }
 }
