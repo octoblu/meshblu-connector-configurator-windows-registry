@@ -700,9 +700,9 @@ lodash@^4.17.4:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
-meshblu-connector-daemon@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/meshblu-connector-daemon/-/meshblu-connector-daemon-1.1.2.tgz#21b3cba30ee26313948e382b076772a00011c351"
+meshblu-connector-daemon@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/meshblu-connector-daemon/-/meshblu-connector-daemon-1.1.4.tgz#e6a57a413dfc1eebd6fa1a7ff111d41a5939a281"
   dependencies:
     pm2-custom "^1.0.0"
 
