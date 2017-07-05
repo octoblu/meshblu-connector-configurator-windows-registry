@@ -17,6 +17,11 @@ matrix:
         --env TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG \
         --env TRAVIS_BRANCH=$TRAVIS_BRANCH \
         --env MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN=$MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN \
+        --env AWS_REGION=$AWS_REGION \
+        --env AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+        --env AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+        --env MESHBLU_CONNECTOR_ENCRYPTION_PASSWORD=$MESHBLU_CONNECTOR_ENCRYPTION_PASSWORD \
+        --env MESHBLU_CONNECTOR_CERT_PASSWORD=$MESHBLU_CONNECTOR_CERT_PASSWORD \
         octoblu/meshblu-connector-builder:linux-armv7 \
           bash -c 'export HOME=/tmp/cache \
             && meshblu-connector-pkger \
@@ -37,6 +42,11 @@ matrix:
         --env TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG \
         --env TRAVIS_BRANCH=$TRAVIS_BRANCH \
         --env MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN=$MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN \
+        --env AWS_REGION=$AWS_REGION \
+        --env AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+        --env AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+        --env MESHBLU_CONNECTOR_ENCRYPTION_PASSWORD=$MESHBLU_CONNECTOR_ENCRYPTION_PASSWORD \
+        --env MESHBLU_CONNECTOR_CERT_PASSWORD=$MESHBLU_CONNECTOR_CERT_PASSWORD \
         octoblu/meshblu-connector-builder:linux-x86 \
           bash -c 'export HOME=/tmp/cache \
             && meshblu-connector-pkger \
@@ -57,6 +67,11 @@ matrix:
         --env TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG \
         --env TRAVIS_BRANCH=$TRAVIS_BRANCH \
         --env MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN=$MESHBLU_CONNECTOR_UPLOADER_GITHUB_TOKEN \
+        --env AWS_REGION=$AWS_REGION \
+        --env AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+        --env AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+        --env MESHBLU_CONNECTOR_ENCRYPTION_PASSWORD=$MESHBLU_CONNECTOR_ENCRYPTION_PASSWORD \
+        --env MESHBLU_CONNECTOR_CERT_PASSWORD=$MESHBLU_CONNECTOR_CERT_PASSWORD \
         octoblu/meshblu-connector-builder:linux-x64 \
           bash -c 'export HOME=/tmp/cache \
             && meshblu-connector-pkger \
