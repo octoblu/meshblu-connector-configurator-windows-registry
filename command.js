@@ -22,6 +22,15 @@ const CLI_OPTIONS = [
     helpArg: "PATH",
     completionType: "file",
   },
+  {
+    names: ["root-key"],
+    type: "string",
+    required: true,
+    env: "MESHBLU_CONNECTOR_ROOT_KEY",
+    help: "Root Key alias [HKLM, HKCU]",
+    helpArg: "ROOT",
+    default: "HKCU",
+  },
 ]
 
 class MeshbluConnectorConfiguratorCommand {
@@ -36,8 +45,8 @@ class MeshbluConnectorConfiguratorCommand {
 
   run() {
     const options = this.octoDash.parseOptions()
-    const { connectorHome, pm2Home } = options
-    const configurator = new MeshbluConnectorConfigurator({ connectorHome, pm2Home })
+    const { connectorHome, pm2Home, rootKey } = options
+    const configurator = new MeshbluConnectorConfigurator({ connectorHome, pm2Home, rootKey })
     return configurator.configurate()
   }
 
